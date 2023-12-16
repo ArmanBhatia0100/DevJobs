@@ -26,6 +26,9 @@ module.exports = {
         sans: ["Kumbh Sans", "sans-serif"],
         serif: ["Merriweather", "serif"],
       },
+      backgroundImage: {
+        "mobile-header": "url('../public/assets/mobile/bg-pattern-header.svg')",
+      },
     },
   },
   plugins: [],
