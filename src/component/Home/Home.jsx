@@ -1,27 +1,16 @@
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SearchBar from "./SearchBar";
-import initialJobData from "../../data.json";
-import { useState } from "react";
+import { useGetUserFilterInput } from "../../utils";
 
 function Home() {
-  const [filterJobList, setFilterJobList] = useState(initialJobData);
-
-  const getUserFilterInput = (position) => {
-    if (position == "") {
-      setFilterJobList(() => initialJobData);
-    } else
-      setFilterJobList(() =>
-        initialJobData.filter((job) => {
-          if (job.position.toLowerCase().includes(position.toLowerCase())) return true;
-        })
-      );
-  };
+  // custom hook
+  const [filterJobList, doFilter] = useGetUserFilterInput();
 
   return (
     <div className="home">
       <Header></Header>
-      <SearchBar getUserInput={getUserFilterInput}></SearchBar>
+      <SearchBar getUserInput={doFilter}></SearchBar>
       <MainContainer jobList={filterJobList} />
     </div>
   );

@@ -3,6 +3,8 @@ import InputBase from "@mui/material/InputBase";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 
+import { useGetUserFilterInput } from "../../utils";
+
 function SearchBar({ getUserInput }) {
   return (
     <div className="relative flex flex-col items-center outline-2 w-[100vw] h-20 bg-[#F4F6F8]">
