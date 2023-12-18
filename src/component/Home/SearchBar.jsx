@@ -6,7 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 function SearchBar() {
   return (
     <div className="relative flex flex-col items-center outline-2 w-[100vw] h-20 bg-[#F4F6F8]">
-      <div className="searchBar relative top-[-1.5rem] rounded-lg bg-white w-[19rem] py-3 px-3 flex flex-row">
+      <div className="searchBar relative top-[-1.5rem] rounded-lg bg-white w-[20rem] py-3 px-3 flex flex-row drop-shadow-lg">
         <InputBase sx={{ backgroundColor: "#fffff", color: "#19202D" }} placeholder="Filter by title" />
         <IconButton aria-label="delete">
           <FilterAltIcon />
