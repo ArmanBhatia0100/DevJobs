@@ -3,11 +3,17 @@ import InputBase from "@mui/material/InputBase";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SearchIcon from "@mui/icons-material/Search";
 
-function SearchBar() {
+function SearchBar({ getUserInput }) {
   return (
     <div className="relative flex flex-col items-center outline-2 w-[100vw] h-20 bg-[#F4F6F8]">
       <div className="searchBar relative top-[-1.5rem] rounded-lg bg-white w-[20rem] py-3 px-3 flex flex-row drop-shadow-lg">
-        <InputBase sx={{ backgroundColor: "#fffff", color: "#19202D" }} placeholder="Filter by title" />
+        <InputBase
+          sx={{ backgroundColor: "#fffff", color: "#19202D" }}
+          placeholder="Filter by title"
+          onChange={(e) => {
+            getUserInput(e.target.value);
+          }}
+        />
         <IconButton aria-label="delete">
           <FilterAltIcon />
         </IconButton>
