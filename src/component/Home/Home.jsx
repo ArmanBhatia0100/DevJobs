@@ -1,7 +1,7 @@
-import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SearchBar from "./SearchBar";
 import { useGetUserFilterInput } from "../../utils";
+import Header from "../UI/Header";
 
 function Home() {
   // custom hook

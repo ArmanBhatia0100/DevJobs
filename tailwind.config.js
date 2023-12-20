@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
       "sm": "640px",
@@ -13,13 +13,12 @@ module.exports = {
       colors: {
         transparent: "transparent",
         current: "currentColor",
-        "violet": "#9e7f66",
+        "violet": "#5964E0",
         "light-violet": "#939BF4",
         "very-dark-blue": "#19202D",
         "midnight": "#121721",
         "white": "#ffffff",
         "light-Grey": "#ecebff",
-        "gray": "#ff77e9",
         "dark-grey": "#6E8098",
       },
       fontFamily: {

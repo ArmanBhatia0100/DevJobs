@@ -1,9 +1,21 @@
 import Home from "./component/Home/Home";
-import "./App.css";
+import JobDescription from "./component/JobDescription/JobDescription";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/job",
+    element: <JobDescription />,
+  },
+]);
 function App() {
   return (
     <div className="App">
-      <Home></Home>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
