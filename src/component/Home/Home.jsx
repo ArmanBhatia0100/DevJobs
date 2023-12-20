@@ -10,6 +10,7 @@ function Home() {
   return (
     <div className="home">
       <Header></Header>
+      
       <SearchBar getUserInput={doFilter}></SearchBar>
       <MainContainer jobList={filterJobList} />
     </div>

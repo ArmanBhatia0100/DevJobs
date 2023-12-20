@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="bg-mobile-header p-5 pt-8 h-32 rounded-bl-3xl">
+    <header className="bg-mobile-header p-5 pt-8 h-32 lg:rounded-bl-3xl dark:bg-[#121721]">
       <div className="flex justify-between items-center ">
         <Link to="/">
           <div>
@@ -15,7 +15,20 @@ function Header() {
         </Link>
         <div className="theme-action-btn">
           <Brightness7Icon sx={{ color: "white" }} />
-          <Switch onChange={() => {}} inputProps={{ "aria-label": "controlled" }} color="default" />
+          <Switch
+            onChange={() => {
+              const html = document.getElementsByTagName("html");
+              if (html[0].classList[0] === "dark") {
+                html[0].classList.remove("dark");
+                html[0].classList.add("light");
+              } else {
+                html[0].classList.remove("light");
+                html[0].classList.add("dark");
+              }
+            }}
+            inputProps={{ "aria-label": "controlled" }}
+            color="default"
+          />
           <Brightness3Icon sx={{ color: "white" }} />
         </div>
       </div>
