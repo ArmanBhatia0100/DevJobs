@@ -14,7 +14,7 @@ const router = createBrowserRouter([
 ]);
 function App() {
   return (
-    <div className="App">
+    <div className="App min-w-[275px]">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

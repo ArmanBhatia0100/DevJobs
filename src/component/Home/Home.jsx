@@ -8,9 +8,9 @@ function Home() {
   const [filterJobList, doFilter] = useGetUserFilterInput();
 
   return (
-    <div className="home">
+    <div className="home min-w-[360px]">
       <Header></Header>
-      
+
       <SearchBar getUserInput={doFilter}></SearchBar>
       <MainContainer jobList={filterJobList} />
     </div>
