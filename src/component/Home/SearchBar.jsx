@@ -17,32 +17,40 @@ function SearchBar({ getUserInput }) {
 export default SearchBar;
 
 function SmallScreenSearchBar({ getUserInput }) {
-  return (
-    <div className="md:hidden w-[80Vw] max-w-sm min-w-[19rem] mt-[-1rem] rounded-lg bg-white py-3 px-3 drop-shadow-lg dark:bg-[#19202D] ">
-      <div className="flex flex-row justify-between">
-        <input
-          type="text"
-          name="position"
-          className="dark:bg-[#19202D] py-3 dark:text-white"
-          placeholder="Filter by title"
-          onChange={(e) => {
-            getUserInput(e.target.value);
-          }}
-        />
-        <button type="button" data-te-ripple-init data-te-ripple-color="light">
-          <FilterAltIcon size="large" sx={{ color: "white" }} />
-        </button>
+  const [jobPostion, setJobPosition] = useState();
 
-        <button
-          type="button"
-          data-te-ripple-init
-          data-te-ripple-color="light"
-          className="flex items-center rounded bg-primary px-3 text-xs font-medium uppercase leading-normal text-white  transition duration-150 ease-in-out hover:bg-primary-600 hover: focus:outline-none focus:ring-0 active:bg-primary-700 ml-3 dark:border-white bg-[#5964E0]"
-        >
-          <SearchIcon size="large" />
-        </button>
+  function onSubmitHandler(e) {
+    e.preventDefault();
+    getUserInput(jobPostion);
+  }
+  return (
+    <form onSubmit={onSubmitHandler}>
+      <div className="md:hidden w-[80Vw] max-w-sm min-w-[19rem] mt-[-1rem] rounded-lg bg-white py-3 px-3 drop-shadow-lg dark:bg-[#19202D] ">
+        <div className="flex flex-row justify-between">
+          <input
+            type="text"
+            name="position"
+            className="dark:bg-[#19202D] py-3 dark:text-white"
+            placeholder="Filter by title"
+            onChange={(e) => {
+              setJobPosition(() => e.target.value);
+            }}
+          />
+          <button type="button" data-te-ripple-init data-te-ripple-color="light">
+            <FilterAltIcon size="large" sx={{ color: "white" }} />
+          </button>
+
+          <button
+            type="submit"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            className="flex items-center rounded bg-primary px-3 text-xs font-medium uppercase leading-normal text-white  transition duration-150 ease-in-out hover:bg-primary-600 hover: focus:outline-none focus:ring-0 active:bg-primary-700 ml-3 dark:border-white bg-[#5964E0]"
+          >
+            <SearchIcon size="large" />
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   );
 }
 
