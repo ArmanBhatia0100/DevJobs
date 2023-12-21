@@ -25,12 +25,12 @@ function RoleDescription({ jobData }) {
             <ul className="list-disc list-inside pl-5 pt-3">
               {jobData.requirements.items.map((item, index) => {
                 return (
-                  <li
-                    key={index}
-                    className="pt-3 text-2xl text-gray-500 before:content-['\2022'] before:text-violet before:font-bold before:text-4xl before:mr-3 flex flex-row items-baseline dark:text-[#9DAEC2]"
+                  <p
+                    key={index + 1}
+                    className="pt-3 text-2xl text-gray-500 before:content-['/2022'] before:text-violet before:font-bold before:text-4xl before:mr-3 flex flex-row items-baseline dark:text-[#9DAEC2]"
                   >
                     {item}
-                  </li>
+                  </p>
                 );
               })}
             </ul>
@@ -44,12 +44,12 @@ function RoleDescription({ jobData }) {
             <ol className="">
               {jobData.role.items.map((item, index) => {
                 return (
-                  <li
+                  <p
                     key={index}
-                    className="pl-5 pt-3 text-2xl text-gray-500 dark:text-[#9DAEC2] before:content-['\2022'] before:text-violet before:font-bold before:text-4xl before:mr-3 flex flex-row items-baseline"
+                    // className="pl-5 pt-3 text-2xl text-gray-500 dark:text-[#9DAEC2] before:content-['\2022'] before:text-violet before:font-bold before:text-4xl before:mr-3 flex flex-row items-baseline"
                   >
                     {item}
-                  </li>
+                  </p>
                 );
               })}
             </ol>
