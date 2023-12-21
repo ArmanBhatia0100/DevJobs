@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 function JobCard({ jobDetail }) {
-  console.log();
-  console.log(jobDetail.position);
   return (
     <Link to="/job" state={{ jobData: jobDetail }}>
       <div className="jobCard relative bg-white dark:bg-[#19202D] p-6 w-[90%] max-w-sm min-w-[19rem] flex flex-col justify-evenly min-h-fit rounded-xl drop-shadow-lg outline-1 outline-dotted">
