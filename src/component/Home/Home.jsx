@@ -10,7 +10,6 @@ function Home() {
   return (
     <div className="home min-w-[360px]">
       <Header></Header>
-
       <SearchBar getUserInput={doFilter}></SearchBar>
       <MainContainer jobList={filterJobList} />
     </div>
