@@ -28,6 +28,7 @@ module.exports = {
       },
       backgroundImage: {
         "mobile-header": "url('../public/assets/mobile/bg-pattern-header.svg')",
+        "login-poster": "url('../public/assets/tablet/login_poster.jpg')",
       },
     },
   },
