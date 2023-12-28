@@ -24,10 +24,14 @@ const Auth = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-row">
-      <div className="w-[50%] bg-gray-800 hidden md:block"></div>
-      <div className="w-100 flex flex-col justify-center m-auto">
-        <div className="formContainer p-5 border-black border">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-zinc-50  md:flex-row md:items-stretch md:justify-normal">
+      <div className="w-[50%] bg-gray-800 hidden md:block md:w-[50%] md:bg-login-poster md:bg-center md:brightness-50 md:bg-cover md:min-h-100"></div>
+      <div className="flex w-full justify-center items-center md:w-[50%] md:">
+        <div className="formContainer min-w-[80%] flex flex-col justify-center">
+          <h1 class="mb-6 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Dev Jobs</span>
+          </h1>
+
           <form onSubmit={formik.handleSubmit} className="flex flex-col">
             <TextField
               fullWidth
