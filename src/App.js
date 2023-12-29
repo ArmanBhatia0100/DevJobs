@@ -1,12 +1,12 @@
 import Auth from "./component/Auth/Auth";
 import Home from "./component/Home/Home";
+import { Navigate } from "react-router-dom";
 import JobDescription from "./component/JobDescription/JobDescription";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <Home />,
     element: <Auth />,
   },
   {
