@@ -17,16 +17,6 @@ function Home() {
       <div className="home min-w-[360px]">
         <Header></Header>
         <SearchBar getUserInput={doFilter}></SearchBar>
-        <div>
-          <button
-            type="button"
-            onClick={() => {
-              dispatch(logout());
-            }}
-          >
-            Logout
-          </button>
-        </div>
         <MainContainer jobList={filterJobList} />
       </div>
     );
