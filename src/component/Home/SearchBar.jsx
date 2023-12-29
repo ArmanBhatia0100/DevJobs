@@ -78,7 +78,7 @@ function LargeScreenSearchBar({ getUserInput }) {
           <input
             name="position"
             type="text"
-            className="dark:bg-[#19202D] py-3 dark:text-white grow  dark:placeholder:text-white"
+            className="dark:bg-[#19202D] py-3 dark:text-white grow  dark:placeholder:text-white border-none  focus:ring-0 placeholder:text-lg text-lg font-semibold"
             placeholder="Filter by title"
             onChange={(e) => {
               setSearchPostion(() => {
@@ -93,7 +93,7 @@ function LargeScreenSearchBar({ getUserInput }) {
           <input
             name="location"
             type="text"
-            className="dark:bg-[#19202D] py-3 dark:text-white grow dark:placeholder:text-white"
+            className="dark:bg-[#19202D] py-3 dark:text-white grow dark:placeholder:text-white border-none outline-none focus:ring-0 placeholder:text-lg text-lg font-semibold"
             placeholder="Location"
             onChange={(e) => {
               setLocation(() => {
@@ -105,17 +105,17 @@ function LargeScreenSearchBar({ getUserInput }) {
         {/* full time  and submit btn */}
         <div className="flex flex-row justify-evenly items-center grow px-2">
           <div className="mb-[0.125rem] min-h-[1.5rem] pl-[1.5rem] flex flex-row items-center dark:text-white">
-            <input
-              className="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid  checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)]  dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:after:border-black dark:checked:after:border-white"
-              type="checkbox"
-              value=""
-              checked={isChecked}
-              id="checkboxDefault"
-              onChange={onCheckboxChangeHandler}
-            />
-            <label className="inline-block pl-[0.15rem] hover:cursor-pointer" htmlFor="checkboxDefault">
-              Full Time
-            </label>
+            <div class="flex flex-row items-center">
+              <input
+                id="default-checkbox"
+                type="checkbox"
+                value=""
+                class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label for="default-checkbox" class="ms-2 text-lg font-medium text-gray-900 dark:text-gray-300">
+                Full Time
+              </label>
+            </div>
           </div>
           <button
             type="submit"
