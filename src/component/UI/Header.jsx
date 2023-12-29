@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className="bg-mobile-header p-5 pt-8 h-32 lg:rounded-bl-3xl dark:bg-[#121721]">
       <div className="flex justify-between items-center ">
-        <Link to="/">
+        <Link to="/home">
           <div>
             <img src="./assets/desktop/logo.svg" alt="Logo-Devjobs" className=""></img>
           </div>
