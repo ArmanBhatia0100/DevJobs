@@ -2,13 +2,17 @@ import { useFormik } from "formik";
 import { addUser } from "../../util/firebase";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-
+import { login } from "../../util/ReduxStore/authenticationSlice";
 import { TextField } from "@mui/material";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Auth = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigate();
   const [loginLoading, setLoginLoading] = useState(false);
+
+  // form handling
   const formik = useFormik({
     initialValues: {
       name: "Arman Bhatia",
@@ -18,25 +22,23 @@ const Auth = () => {
       const jsonVal = JSON.stringify(value);
       const user = JSON.parse(jsonVal);
       addUser(user);
-      setTimeout(() => {
-        navigation("/home");
-      }, 800);
+      dispatch(login());
+      navigation("/home");
     },
   });
 
+  // google redirect signIN
   const getGoogleSignin = async () => {
     try {
       const auth = getAuth();
       const userCred = await signInWithPopup(auth, new GoogleAuthProvider());
       const { user } = userCred;
       const { accessToken } = user;
-      window.localStorage.setItem("token", accessToken);
       setLoginLoading(() => {
         return true;
       });
-      setInterval(() => {
-        navigation("/home");
-      }, 1000);
+      dispatch(login());
+      navigation("/home");
     } catch (error) {
       console.log(error);
     }
@@ -47,8 +49,8 @@ const Auth = () => {
       <div className="w-[50%] bg-gray-800 hidden md:block md:w-[50%] md:bg-login-poster md:bg-center md:brightness-50 md:bg-cover md:min-h-100"></div>
       <div className="flex w-full justify-center items-center md:w-[50%] md:">
         <div className="formContainer min-w-[80%] flex flex-col justify-center">
-          <h1 class="mb-6 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Dev Jobs</span>
+          <h1 className="mb-6 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Dev Jobs</span>
           </h1>
 
           <form onSubmit={formik.handleSubmit} className="flex flex-col">
@@ -76,8 +78,8 @@ const Auth = () => {
               }}
             />
             {loginLoading ? (
-              <button type="submit" class="text-white bg-[#1976d2] dark:bg-[#1976d2] cursor-not-allowed font-semibold rounded-lg  text-lg px-5 py-2.5 text-center" disabled>
-                <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <button type="button" className="text-white bg-[#1976d2] dark:bg-[#1976d2] cursor-not-allowed font-semibold rounded-lg  text-lg px-5 py-2.5 text-center" disabled>
+                <svg aria-hidden="true" role="status" className="inline w-4 h-4 me-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
                     fill="fill-blue-600"
@@ -90,7 +92,7 @@ const Auth = () => {
                 Login
               </button>
             ) : (
-              <button type="submit" class="text-white bg-[#1976d2] dark:bg-[#1976d2]  font-semibold rounded-lg  text-lg px-5 py-2.5 text-center">
+              <button type="submit" className="text-white bg-[#1976d2] dark:bg-[#1976d2] font-semibold rounded-lg  text-lg px-5 py-2.5 text-center">
                 Login
               </button>
             )}
@@ -98,14 +100,14 @@ const Auth = () => {
           <p className="text-center my-3 font-semibold text-zinc-500">Sign In with</p>
           <button
             type="button"
-            class="w-full text-white text-lg bg-[#49648f] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-semibold rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2"
+            className="w-full text-white text-lg bg-[#49648f] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-semibold rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2"
             onClick={getGoogleSignin}
           >
-            <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+            <svg className="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
             Google
